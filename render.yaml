@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: manifest-q-rules
+    runtime: python
+    plan: free
+    region: frankfurt
+    autoDeployTrigger: off
+    buildCommand: python -m compileall -q q_rules_service.py manifest_editor/q_rules_sync.py
+    startCommand: python q_rules_service.py
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHONPATH
+        value: .
+      - key: Q_RULES_GITHUB_TOKEN
+        sync: false
+      - key: Q_RULES_ACCESS_KEY
+        sync: false

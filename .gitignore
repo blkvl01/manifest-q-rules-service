@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.env
+.env.*
+q_rules_service.json
+pending_q_rules.json
